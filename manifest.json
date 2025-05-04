@@ -1,30 +1,57 @@
 {
+  "id": "com.jesusvilca.barberia",
   "name": "Jesus Vilca Barberia",
   "short_name": "Barberia",
+  "description": "App de Reservas de servicios para Jesus Vilca Barberia, ofreciendo servicios de barbería y tatuajes con reservas en línea. realizada por manguito perú",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#1a1a1a",
+  "orientation": "portrait-primary",
   "theme_color": "#FFD700",
+  "background_color": "#1a1a1a",
   "icons": [
     {
-      "src": "assets/img/icon-144.png",
+      "src": "/assets/img/icon-144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "assets/img/icon-152.png",
+      "src": "/assets/img/icon-152.png",
       "sizes": "152x152",
       "type": "image/png"
     },
     {
-      "src": "assets/img/icon-192.png",
+      "src": "/assets/img/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "assets/img/icon-512.png",
+      "src": "/assets/img/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/img/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Pantalla principal de Jesus Vilca Barberia"
+    },
+    {
+      "src": "/assets/img/screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Pantalla de servicios"
+    },
+    {
+      "src": "/assets/img/screenshot3.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Sección de reservas"
+    }
+  ],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "scope": "/"
 }
