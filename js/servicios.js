@@ -4,24 +4,49 @@ let swiperInstance = null;
 function initServicios() {
     console.log('initServicios called');
 
-    const content = document.querySelector('#content');
-    const categoryBar = document.querySelector('#category-bar');
-    const serviceList = document.querySelector('#service-list');
+    // Función para verificar si los elementos requeridos están presentes
+    function checkRequiredElements() {
+        const content = document.querySelector('#content');
+        const categoryBar = document.querySelector('#category-bar');
+        const serviceList = document.querySelector('#service-list');
 
-    if (!content || !categoryBar || !serviceList) {
-        console.error('Required elements not found:', { content, categoryBar, serviceList });
-        window.showNotification('Error al cargar la página de servicios.');
-        return;
+        if (!content || !categoryBar || !serviceList) {
+            console.error('Required elements not found:', {
+                content: !!content,
+                categoryBar: !!categoryBar,
+                serviceList: !!serviceList
+            });
+            return null;
+        }
+        return { content, categoryBar, serviceList };
     }
 
-    loadServices();
+    // Función para intentar inicializar con reintentos
+    function tryInitialize(maxAttempts = 5, delay = 500) {
+        let attempts = 0;
+        const interval = setInterval(() => {
+            attempts++;
+            console.log(`Attempt ${attempts} to find required elements`);
+            const elements = checkRequiredElements();
+            if (elements || attempts >= maxAttempts) {
+                clearInterval(interval);
+                if (elements) {
+                    console.log('Required elements found, proceeding with initialization');
+                    loadServices(elements);
+                } else {
+                    console.error('Max attempts reached, required elements still missing');
+                    window.showNotification('Error crítico: No se pudo cargar la página de servicios.');
+                }
+            }
+        }, delay);
+    }
 
-    function loadServices() {
-        // Load servicios.json if not cached
+    // Función para cargar servicios
+    function loadServices(elements) {
         if (!cachedConfig) {
             fetch('servicios.json')
                 .then(response => {
-                    if (!response.ok) throw new Error('Failed to load servicios.json');
+                    if (!response.ok) throw new Error(`Failed to load servicios.json: ${response.statusText}`);
                     return response.json();
                 })
                 .then(data => {
@@ -45,22 +70,25 @@ function initServicios() {
                         });
                     });
                     cachedConfig = data;
-                    initializeSection(data);
+                    initializeSection(data, elements);
                 })
                 .catch(error => {
                     console.error('Error loading servicios.json:', error);
                     window.showNotification('No se pudo cargar la lista de servicios.');
-                    serviceList.innerHTML = '<p class="text-text-secondary text-center">Error al cargar servicios. Intenta de nuevo.</p>';
+                    elements.serviceList.innerHTML = '<p class="text-text-secondary text-center">Error al cargar servicios. Intenta de nuevo.</p>';
                 });
         } else {
-            initializeSection(cachedConfig);
+            initializeSection(cachedConfig, elements);
         }
     }
+
+    // Iniciar el proceso de inicialización
+    tryInitialize();
 }
 
-function initializeSection(config) {
+function initializeSection(config, elements) {
     console.log('Initializing servicios with config:', config);
-    const categoryBar = document.querySelector('#category-bar');
+    const { categoryBar, serviceList } = elements;
     if (categoryBar && config.categories && config.categories.length > 0) {
         categoryBar.innerHTML = config.categories.map((category, index) => `
             <div class="swiper-slide">
@@ -80,15 +108,13 @@ function initializeSection(config) {
         });
         console.log('Category carousel initialized');
 
-        // Set first category as active
         const firstButton = categoryBar.querySelector('.category-btn');
         if (firstButton) {
             firstButton.classList.add('active');
             firstButton.setAttribute('aria-selected', 'true');
-            renderServices(firstButton.dataset.categoryId, config);
+            renderServices(firstButton.dataset.categoryId, config, serviceList);
         }
 
-        // Category button event listeners
         categoryBar.querySelectorAll('.category-btn').forEach(button => {
             button.addEventListener('click', () => {
                 categoryBar.querySelectorAll('.category-btn').forEach(btn => {
@@ -98,12 +124,11 @@ function initializeSection(config) {
                 button.classList.add('active');
                 button.setAttribute('aria-selected', 'true');
                 localStorage.setItem('lastCategory', button.dataset.categoryId);
-                renderServices(button.dataset.categoryId, config);
+                renderServices(button.dataset.categoryId, config, serviceList);
                 swiperInstance.slideTo(config.categories.findIndex(cat => cat.id == button.dataset.categoryId));
             });
         });
 
-        // Restore last category
         const lastCategory = localStorage.getItem('lastCategory');
         if (lastCategory) {
             const activeBtn = categoryBar.querySelector(`[data-category-id="${lastCategory}"]`);
@@ -114,7 +139,7 @@ function initializeSection(config) {
                 });
                 activeBtn.classList.add('active');
                 activeBtn.setAttribute('aria-selected', 'true');
-                renderServices(lastCategory, config);
+                renderServices(lastCategory, config, serviceList);
                 swiperInstance.slideTo(config.categories.findIndex(cat => cat.id == lastCategory));
             }
         }
@@ -123,12 +148,10 @@ function initializeSection(config) {
         if (categoryBar) categoryBar.innerHTML = '<p class="text-text-secondary text-center">No hay categorías disponibles.</p>';
     }
 
-    // Disable toast notifications
     window.showToast = function(message) {
         console.log(`Toast message suppressed: ${message}`);
     };
 
-    // Go to cart
     const goToCart = document.querySelector('#go-to-cart');
     if (goToCart) {
         goToCart.addEventListener('click', () => {
@@ -141,9 +164,7 @@ function initializeSection(config) {
     }
 }
 
-// Render services
-function renderServices(categoryId, config) {
-    const serviceList = document.querySelector('#service-list');
+function renderServices(categoryId, config, serviceList) {
     const category = config.categories.find(cat => cat.id == categoryId);
     const selectedServices = JSON.parse(localStorage.getItem('selectedServices') || '[]');
     if (serviceList && category && category.services && category.services.length > 0) {
@@ -180,7 +201,6 @@ function renderServices(categoryId, config) {
         }).join('');
         console.log(`Services rendered for category ${category.name}`);
 
-        // Add event listeners
         serviceList.querySelectorAll('.card').forEach(card => {
             const serviceId = parseInt(card.dataset.serviceId);
             const service = category.services.find(s => s.id === serviceId);
@@ -194,8 +214,8 @@ function renderServices(categoryId, config) {
                 } else {
                     selectService(service.id, service.name, service.price, service.categoryId);
                 }
-                renderServices(categoryId, config);
-                window.updateBookingCount(); // Update notification in real-time
+                renderServices(categoryId, config, serviceList);
+                window.updateBookingCount();
             });
         });
     } else {
@@ -203,30 +223,27 @@ function renderServices(categoryId, config) {
     }
 }
 
-// Select service
 window.selectService = function(id, name, price, categoryId) {
     console.log(`Service selected: ${name} (ID: ${id}, Price: ${price}, Category: ${categoryId})`);
     let selectedServices = JSON.parse(localStorage.getItem('selectedServices') || '[]');
     if (!selectedServices.find(s => s.id === id)) {
         selectedServices.push({ id, name, price, categoryId });
         localStorage.setItem('selectedServices', JSON.stringify(selectedServices));
-        window.updateBookingCount(); // Update notification in real-time
+        window.updateBookingCount();
         if (!localStorage.getItem('suggestionSkip')) {
             showSuggestionModal(name, id, categoryId);
         }
     }
 };
 
-// Remove service
 window.removeService = function(id) {
     console.log(`Removing service ID: ${id}`);
     let selectedServices = JSON.parse(localStorage.getItem('selectedServices') || '[]');
     selectedServices = selectedServices.filter(s => s.id !== id);
     localStorage.setItem('selectedServices', JSON.stringify(selectedServices));
-    window.updateBookingCount(); // Update notification in real-time
+    window.updateBookingCount();
 };
 
-// Show suggestion modal
 function showSuggestionModal(selectedServiceName, selectedServiceId, selectedCategoryId) {
     if (!cachedConfig) return;
     const modal = document.querySelector('#suggestion-modal');
@@ -268,8 +285,8 @@ function showSuggestionModal(selectedServiceName, selectedServiceId, selectedCat
                 const service = suggestions[index];
                 selectService(service.id, service.name, service.price || 0, service.categoryId);
                 const activeCategory = document.querySelector('.category-btn.active').dataset.categoryId;
-                renderServices(activeCategory, cachedConfig);
-                window.updateBookingCount(); // Update notification in real-time
+                renderServices(activeCategory, cachedConfig, document.querySelector('#service-list'));
+                window.updateBookingCount();
             });
         });
 
@@ -296,7 +313,6 @@ function showSuggestionModal(selectedServiceName, selectedServiceId, selectedCat
     }
 }
 
-// Show details modal
 function showDetailsModal(service) {
     const modal = document.querySelector('#details-modal');
     const title = document.querySelector('#details-title');
@@ -322,8 +338,8 @@ function showDetailsModal(service) {
     addButton.addEventListener('click', () => {
         selectService(service.id, service.name, service.price, service.categoryId);
         const activeCategory = document.querySelector('.category-btn.active').dataset.categoryId;
-        renderServices(activeCategory, cachedConfig);
-        window.updateBookingCount(); // Update notification in real-time
+        renderServices(activeCategory, cachedConfig, document.querySelector('#service-list'));
+        window.updateBookingCount();
         modal.classList.remove('show');
         setTimeout(() => modal.classList.add('hidden'), 300);
     }, { once: true });
@@ -332,4 +348,15 @@ function showDetailsModal(service) {
         modal.classList.remove('show');
         setTimeout(() => modal.classList.add('hidden'), 300);
     }, { once: true });
+}
+
+// Ejecutar initServicios cuando el DOM esté completamente cargado
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    console.log('DOM already loaded, initializing servicios');
+    initServicios();
+} else {
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM fully loaded, initializing servicios');
+        initServicios();
+    });
 }
