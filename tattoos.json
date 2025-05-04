@@ -1,0 +1,29 @@
+{
+  "tattooInfo": "En Jesús Vilca Barbería, ofrecemos servicios de tatuajes personalizados realizados por nuestro tatuador profesional. Nos especializamos en diversos estilos, desde minimalista hasta realismo, asegurando un trabajo de alta calidad en un ambiente seguro e higiénico. ¡Agenda tu cita y convierte tu idea en arte!",
+  "tattooArtist": {
+    "name": "Kevin",
+    "bio": "Kevin, con más de 5 años de experiencia, es un maestro en tatuajes personalizados y detallados. Su pasión por el arte y compromiso con cada cliente lo hacen destacar en Talara. Confía en Kevin para crear un tatuaje único que refleje tu estilo. ¡Contáctalo hoy!",
+    "image": "assets/img/tattoo-artist.jpg",
+    "whatsappNumber": "+51920850690"
+},
+  "tattooGallery": [
+    {
+      "image": "assets/img/tattoo-gallery/1.jpg"
+    },
+    {
+      "image": "assets/img/tattoo-gallery/2.jpg"
+    },
+    {
+      "image": "assets/img/tattoo-gallery/3.jpg"
+    }
+    ,
+    {
+      "image": "assets/img/tattoo-gallery/4.jpg"
+    }
+    ,
+    {
+      "image": "assets/img/tattoo-gallery/5.jpg"
+    }
+  ],
+  "bookingAnticipationHours": 24
+}

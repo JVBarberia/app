@@ -1,0 +1,60 @@
+/* variables.css - Colores y propiedades globales para la aplicación de Barbería Estilo */
+
+/* Colores principales */
+:root {
+    /* Mostaza vibrante: usado en títulos, botones, acentos y elementos destacados */
+    --mustard: #ffab00;
+    /* Fondo de tarjetas, modales y secciones */
+    --dark-card-bg: #262626;
+    /* Fondo general de la aplicación (body) */
+    --beige: #1a1a1a;
+    /* Fondo de la barra de navegación */
+    --nav-bg: #2a0808;
+}
+
+/* Colores secundarios */
+:root {
+    /* Texto principal: usado en textos blancos */
+    --text-primary: #ffffff;
+    /* Texto secundario: usado en descripciones y etiquetas */
+    --text-secondary: #a1a1aa;
+    /* Verde para botones de WhatsApp y confirmaciones */
+    --green: #22c55e;
+    /* Acento rojo vibrante: usado en categorías activas y alertas */
+    --accent: #fcc400;
+    /* Azul para botón de llamada */
+    --blue: #3b82f6;
+    /* Naranja para botón de servicios */
+    --orange: #f97316;
+    /* Gris para botón de cómo llegar */
+    --gray: #4b5563;
+    /* Colores básicos */
+    --white: #ffffff;
+    --black: #000000;
+}
+
+/* Colores para estados hover */
+:root {
+    /* Hover del mostaza: usado en botones y elementos con --mustard */
+    --mustard-hover: #e69500;
+    /* Hover de botones principales */
+    --button-hover: #e69500;
+    /* Hover del verde: usado en botones de WhatsApp */
+    --green-hover: #16a34a;
+    /* Hover del acento: usado en elementos con --accent */
+    --accent-hover: #e6b800;
+    /* Hover del azul: usado en botón de llamada */
+    --blue-hover: #2563eb;
+    /* Hover del naranja: usado en botón de servicios */
+    --orange-hover: #ea580c;
+    /* Hover del gris: usado en botón de cómo llegar */
+    --gray-hover: #6b7280;
+}
+
+/* Propiedades no relacionadas con color */
+:root {
+    /* Sombra para tarjetas, modales y elementos elevados */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    /* Borde para inputs, botones y elementos delimitados */
+    --border: 1px solid #3f3f3f;
+}

@@ -1,0 +1,9 @@
+{
+    "appTitle": "Jesús Vilca - Barber Studio",
+    "navItems": [
+        { "section": "inicio", "label": "Inicio", "icon": "fas fa-home" },
+        { "section": "servicios", "label": "Servicios", "icon": "fas fa-scissors" },
+        { "section": "reservas", "label": "Reservas", "icon": "fas fa-calendar-check" }
+    ],
+    "bookingCountLabel": "Reservas"
+}

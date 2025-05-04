@@ -1,0 +1,49 @@
+{
+  "business": {
+    "name": "Jesús Vilca Barbería",
+    "slogan": "¡Tu estilo en manos expertas!",
+    "description": "En Jesús Vilca Barbería, te damos cortes y barbería con estilo en un ambiente moderno. También ofrecemos tatuajes con diseños únicos. Visítanos en Talara.",
+    "address": "Mariscal Castilla D-12, Talara (costado de Caja Arequipa)",
+    "hours": "Lun a Sáb: 09:00 - 22:00 | Dom: 09:00 - 14:00",
+    "phoneNumber": "+51920850690",
+    "whatsappNumber": "+51920850690",
+    "socials": {
+      "instagram": "https://www.instagram.com/barberstudiojesusvilca/",
+      "facebook": "https://web.facebook.com/jesusvilcabarberia"
+    },
+    "mapCoordinates": {
+      "latitude": -4.5800724,
+      "longitude": -81.272979
+    }
+  },
+  "banners": [
+    {
+      "image": "assets/img/banner/1.jpg",
+      "text": "¡Bienvenidos!"
+    },
+    {
+      "image": "assets/img/banner/2.jpg",
+      "text": "¡Cambio total!"
+    },
+    {
+      "image": "assets/img/banner/3.jpg",
+      "text": "Servicio VIP"
+    }
+  ],
+  "tattooArtist": {
+    "name": "Kevin",
+    "description": "¡Transforma tu piel en arte! Kevin, nuestro talentoso tatuador, crea diseños únicos y vibrantes con precisión y pasión. En un entorno seguro y profesional, personaliza tu tatuaje o elige de nuestro exclusivo catálogo. ¡Reserva ahora y haz realidad tu visión!",
+    "image": "assets/img/tattoo-artist.jpg"
+},
+  "agency": {
+    "name": "Manguito Perú",
+    "whatsapp": "+51961360935",
+    "website": "https://manguitopublicidad.com",
+    "socials": {
+      "instagram": "https://instagram.com/manguitopublicidad",
+      "facebook": "https://web.facebook.com/manguitopublicidadpmd/",
+      "tiktok": "https://tiktok.com/@manguitopublicidad"
+    },
+    "modalText": "¿Quieres un catálogo digital como este o saber más sobre nuestros servicios? ¡Contáctanos a través de WhatsApp o visita nuestra web!"
+  }
+}

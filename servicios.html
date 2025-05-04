@@ -1,0 +1,47 @@
+<section id="content" class="content p-4 relative">
+    <!-- Category Carousel -->
+    <div class="swiper categories mb-6">
+        <div id="category-bar" class="swiper-wrapper" role="tablist"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Service List -->
+    <div id="service-list" class="flex flex-col gap-4"></div>
+
+    <!-- Suggestion Modal -->
+    <div id="suggestion-modal" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden z-30">
+        <div class="bg-dark-card-bg rounded-lg p-6 w-full max-w-sm mx-4 relative">
+            <h3 class="text-xl font-bold text-mustard mb-4 text-center">¡Completa tu estilo!</h3>
+            <div id="suggestion-content" class="flex flex-col gap-4 mb-4"></div>
+            <label class="flex items-center gap-2 text-text-secondary text-sm mb-4">
+                <input type="checkbox" id="suggestion-skip" class="h-4 w-4">
+                No mostrar de nuevo
+            </label>
+            <div class="flex gap-3">
+                <button id="suggestion-close" class="btn bg-gray-500 text-white w-full py-2 rounded-full">Cerrar</button>
+                <button id="suggestion-cart" class="btn bg-mustard text-black w-full py-2 rounded-full">
+                    <i class="fas fa-shopping-cart mr-2"></i>Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details Modal -->
+    <div id="details-modal" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden z-30">
+        <div class="bg-dark-card-bg rounded-lg p-6 w-full max-w-sm mx-4">
+            <div class="flex items-center gap-3 mb-4">
+                <i id="details-icon" class="text-mustard text-2xl"></i>
+                <h3 id="details-title" class="text-lg font-bold text-mustard"></h3>
+            </div>
+            <p id="details-duration" class="text-text-secondary mb-2"></p>
+            <p id="details-price" class="text-mustard font-bold mb-4"></p>
+            <p id="details-description" class="text-text-secondary mb-4"></p>
+            <div class="flex gap-3">
+                <button id="details-add" class="btn bg-mustard text-black w-full py-2 rounded-full">
+                    <i class="fas fa-plus mr-2"></i>Agregar
+                </button>
+                <button id="details-close" class="btn bg-gray-500 text-white w-full py-2 rounded-full">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</section>

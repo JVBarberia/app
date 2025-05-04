@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="app-title">Jesús Vilca</title>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#FFD700">
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+    <!-- Dependencies -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <script src="js/tailwindcss.min.js"></script>
+</head>
+<body class="bg-beige text-text-primary">
+    <div class="app-container flex flex-col min-h-screen">
+        <!-- Main Content -->
+        <div id="content" class="flex-1 p-4 pb-20">
+            <p class="text-text-secondary text-center">Cargando contenido...</p>
+        </div>
+
+        <!-- Navigation Bar -->
+        <nav class="tab-bar fixed bottom-0 left-0 right-0 bg-nav-bg flex justify-around p-2 shadow-[0_-2px_5px_rgba(0,0,0,0.1)] z-20">
+            <div id="nav-items" class="flex w-full justify-around"></div>
+        </nav>
+
+        <!-- Notification Modal -->
+        <div id="notification-modal" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden z-30">
+            <div class="card bg-dark-card-bg p-6 w-full max-w-sm mx-4 rounded-lg text-center">
+                <p id="notification-message" class="text-text-secondary mb-4"></p>
+                <button id="notification-close" class="btn bg-mustard text-black w-full py-2 rounded-full transition-colors">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => console.log('Service Worker registrado'))
+          .catch(err => console.error('Error registrando Service Worker:', err));
+      }
+    </script>
+</body>
+</html>

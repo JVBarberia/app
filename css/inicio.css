@@ -1,0 +1,216 @@
+/* Estilos para inicio.html */
+@import url('variables.css');
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Swiper */
+.swiper {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    background-color: var(--dark-card-bg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.swiper-slide p {
+    position: absolute;
+    z-index: 2;
+    color: var(--text-primary);
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    max-width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.swiper-pagination-bullet {
+    background: var(--white);
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--mustard);
+}
+
+/* Cards */
+.card {
+    background-color: var(--dark-card-bg);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+/* Social Links */
+.social-icon {
+    width: 48px;
+    height: 48px;
+    background-color: var(--dark-card-bg);
+    color: var(--mustard);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Map */
+#map {
+    height: 250px;
+    width: 100%;
+    border-radius: 8px;
+    filter: grayscale(20%);
+    z-index: 10;
+    margin-bottom: 1.5rem; /* Añadido espaciado */
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--mustard);
+    color: var(--black);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Specific Button Styles */
+.phone-link {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+.whatsapp-link {
+    background-color: var(--green);
+    color: var(--white);
+}
+
+#open-reserve {
+    background-color: var(--mustard);
+    color: var(--black);
+}
+
+[data-section="servicios"] {
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+a[href*="google.com/maps"] {
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+/* Modal */
+#reserve-confirm-modal, #agency-modal {
+    display: none;
+    z-index: 20;
+}
+
+#agency-modal {
+    z-index: 50; /* Encima de #map y #reserve-confirm-modal */
+    background-color: rgba(0, 0, 0, 0.8); /* Más opaco */
+    backdrop-filter: blur(4px); /* Desenfoque */
+}
+
+#reserve-confirm-modal.show, #agency-modal.show {
+    display: flex;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Agency Modal Specific */
+#agency-modal .card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-btn {
+    width: 48px;
+    height: 48px;
+    background-color: var(--green);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-btn.agency-whatsapp {
+    background-color: var(--green);
+}
+
+.modal-btn.agency-website {
+    background-color: var(--blue);
+}
+
+/* Footer */
+footer {
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+footer a {
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .swiper {
+        height: 160px;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.65rem 1.25rem;
+    }
+
+    .social-icon, .modal-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icon i, .modal-btn i {
+        font-size: 1.25rem;
+    }
+
+    #reserve-confirm-modal .card, #agency-modal .card {
+        max-width: 280px;
+        padding: 1rem;
+    }
+
+    footer {
+        padding: 0.75rem;
+    }
+}

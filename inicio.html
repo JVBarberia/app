@@ -1,0 +1,91 @@
+<section class="animate-fadeIn">
+    <!-- Swiper Slider -->
+    <div class="swiper mb-6 rounded-lg overflow-hidden">
+        <div class="swiper-wrapper" id="banner-items"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="card bg-dark-card-bg text-center mb-6 p-6">
+        <h1 class="text-3xl font-extrabold text-mustard mb-3 business-name"></h1>
+        <p class="text-text-secondary mb-4 text-sm slogan"></p>
+        <p class="text-text-secondary mb-4 text-sm business-description"></p>
+        <button data-section="servicios" class="btn bg-orange text-white font-semibold w-full py-3 rounded-full hover:bg-orange-hover transition-colors">Ver Servicios</button>
+    </div>
+
+    <!-- Social Media Links -->
+    <div id="social-links" class="flex justify-center gap-4 mb-6"></div>
+
+    <!-- Quick Info -->
+    <div class="card bg-dark-card-bg p-6 mb-6">
+        <h2 class="text-lg font-bold text-mustard mb-4 flex items-center">
+            <i class="fas fa-info-circle mr-2"></i> Información
+        </h2>
+        <div class="space-y-4">
+            <div class="flex items-start">
+                <i class="fas fa-clock text-mustard mr-3 mt-1"></i>
+                <p class="text-text-secondary text-sm hours"></p>
+            </div>
+            <div class="flex items-start">
+                <i class="fas fa-map-marker-alt text-mustard mr-3 mt-1"></i>
+                <p class="text-text-secondary text-sm address"></p>
+            </div>
+            <div class="flex flex-col gap-3 mt-4">
+                <a href="" class="btn bg-blue text-white font-semibold py-3 rounded-full flex items-center justify-center hover:bg-blue-hover transition-colors phone-link">
+                    <i class="fas fa-phone-alt mr-2"></i> Llamar
+                </a>
+                <a href="" class="btn bg-green text-white font-semibold py-3 rounded-full flex items-center justify-center hover:bg-green-hover transition-colors whatsapp-link">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tattoo Services -->
+    <div class="card bg-dark-card-bg p-6 mb-6">
+        <h2 class="text-xl font-bold text-mustard mb-4 flex items-center">
+            <i class="fas fa-pen mr-2 text-2xl"></i> Servicios de Tatuajes
+        </h2>
+        <div class="relative w-full h-0 pb-[56.25%] mb-4 rounded-lg overflow-hidden">
+            <img src="" class="tattoo-image absolute top-0 left-0 w-full h-full object-cover" alt="Tatuador">
+        </div>
+        <p class="text-text-secondary text-sm mb-4 tattoo-description"></p>
+        <button id="tattoo-reserve" data-section="tattoos" class="btn bg-mustard text-black w-full py-3 rounded-full flex items-center justify-center border-2 border-[#FFD700] hover:bg-mustard-hover transition-colors">
+            <i class="fas fa-info-circle mr-2"></i> Más Sobre Nuestros Tatuajes
+        </button>
+    </div>
+
+    <!-- Map -->
+    <div class="card bg-dark-card-bg p-6 mb-6">
+        <h2 class="text-lg font-bold text-mustard mb-4 flex items-center">
+            <i class="fas fa-map-marked-alt mr-2"></i> Nuestra Ubicación
+        </h2>
+        <div id="map" class="rounded-lg mb-4 h-64"></div>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=-4.5800724,-81.272979" target="_blank" class="btn bg-gray text-white font-semibold w-full py-3 rounded-full flex items-center justify-center hover:bg-gray-hover transition-colors">
+            <i class="fas fa-route mr-2"></i> Cómo Llegar
+        </a>
+    </div>
+
+    <!-- Agency Modal -->
+    <div id="agency-modal" class="fixed inset-0 bg-black/60 flex items-center justify-center hidden z-20">
+        <div class="card bg-dark-card-bg max-w-sm w-full mx-4 text-center p-6">
+            <h3 class="text-2xl font-bold text-mustard mb-4 agency-name"></h3>
+            <p class="text-text-secondary mb-6 agency-modal-text"></p>
+            <div class="flex justify-center gap-4 mb-6">
+                <a href="" class="modal-btn bg-green text-white agency-whatsapp" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                </a>
+                <a href="" class="modal-btn bg-blue text-white agency-website" target="_blank" rel="noopener">
+                    <i class="fas fa-globe text-xl"></i>
+                </a>
+            </div>
+            <div id="agency-social-links" class="flex justify-center gap-4 mb-6"></div>
+            <button id="agency-close" class="btn bg-dark-card-bg border border-mustard text-mustard w-full py-2 rounded-full hover:bg-mustard hover:text-black transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 text-text-secondary text-sm">
+        Powered by <a href="#" id="agency-link" class="text-mustard hover:text-mustard-hover transition-colors agency-name"></a>
+    </footer>
+</section>

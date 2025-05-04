@@ -1,0 +1,105 @@
+/* Estilos para tattoos.html */
+@import url('variables.css');
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Tattoo Slider */
+.tattoo-slider {
+    width: 100%;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tattoo-slider .swiper-slide {
+    background-color: var(--dark-card-bg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tattoo-slider .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.tattoo-slider .swiper-pagination-bullet {
+    background: var(--white);
+}
+
+.tattoo-slider .swiper-pagination-bullet-active {
+    background: var(--mustard);
+}
+
+/* Cards */
+.card {
+    background-color: var(--dark-card-bg);
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease;
+}
+
+/* Form Inputs */
+input, textarea, select {
+    background-color: var(--gray-700);
+    color: var(--white);
+    border: 1px solid var(--gray-600);
+    border-radius: 8px;
+    padding: 0.75rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--mustard);
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--mustard);
+    color: var(--black);
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .tattoo-slider {
+        height: 160px;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    .btn {
+        padding: 0.65rem 1.25rem;
+    }
+
+    input, textarea, select {
+        padding: 0.65rem;
+    }
+}

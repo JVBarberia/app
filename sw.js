@@ -1,0 +1,83 @@
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open('barberia-v1').then(cache => {
+      return cache.addAll([
+        '/',
+        '/index.html',
+        '/inicio.html',
+        '/servicios.html',
+        '/tattoos.html',
+        '/reservas.html',
+        '/index.json',
+        '/inicio.json',
+        '/servicios.json',
+        '/tattoos.json',
+        '/reservas.json',
+        '/manifest.json',
+        '/css/variables.css',
+        '/css/index.css',
+        '/css/all.min.css',
+        '/css/swiper-bundle.min.css',
+        '/css/leaflet.css',
+        '/css/inicio.css',
+        '/css/servicios.css',
+        '/css/tattoos.css',
+        '/css/reservas.css',
+        '/js/tailwindcss.min.js',
+        '/js/swiper-bundle.min.js',
+        '/js/leaflet.js',
+        '/js/index.js',
+        '/js/inicio.js',
+        '/js/servicios.js',
+        '/js/tattoos.js',
+        '/js/reservas.js',
+        '/assets/img/favicon.png',
+        '/assets/img/icon-144.png',
+        '/assets/img/icon-152.png',
+        '/assets/img/icon-192.png',
+        '/assets/img/icon-512.png',
+        '/assets/img/barba.jpg',
+        '/assets/img/cejas.jpg',
+        '/assets/img/clasico.jpg',
+        '/assets/img/corte_barba.jpg',
+        '/assets/img/corte_barba_cejas.jpg',
+        '/assets/img/degradado.jpg',
+        '/assets/img/limpieza_facial.jpg',
+        '/assets/img/logo.jpg',
+        '/assets/img/tattoo-artist.jpg',
+        '/assets/img/vip.jpg',
+        '/assets/img/banner/1.jpg',
+        '/assets/img/banner/2.jpg',
+        '/assets/img/banner/3.jpg',
+        '/assets/img/tattoo-gallery/1.jpg',
+        '/assets/img/tattoo-gallery/2.jpg',
+        '/assets/img/tattoo-gallery/3.jpg',
+        '/assets/img/tattoo-gallery/4.jpg',
+        '/assets/img/tattoo-gallery/5.jpg',
+        '/assets/img/qr/qr_plin.png',
+        '/assets/img/qr/qr_yape.png',
+        '/css/images/layers-2x.png',
+        '/css/images/layers.png',
+        '/css/images/marker-icon-2x.png',
+        '/css/images/marker-icon.png',
+        '/css/images/marker-shadow.png',
+        '/webfonts/fa-brands-400.ttf',
+        '/webfonts/fa-brands-400.woff2',
+        '/webfonts/fa-regular-400.ttf',
+        '/webfonts/fa-regular-400.woff2',
+        '/webfonts/fa-solid-900.ttf',
+        '/webfonts/fa-solid-900.woff2',
+        '/webfonts/fa-v4compatibility.ttf',
+        '/webfonts/fa-v4compatibility.woff2'
+      ]);
+    })
+  );
+});
+
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
+  );
+});

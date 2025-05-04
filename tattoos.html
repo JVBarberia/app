@@ -1,0 +1,77 @@
+<section class="animate-fadeIn">
+    <!-- Tattoo Slider -->
+    <div class="swiper tattoo-slider mb-6 rounded-lg overflow-hidden">
+        <div class="swiper-wrapper" id="tattoo-gallery"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- Tattoo Info Section -->
+    <div class="card bg-dark-card-bg p-6 mb-6">
+        <h2 class="text-xl font-bold text-mustard mb-4 flex items-center">
+            <i class="fas fa-pen mr-2 text-2xl"></i> Nuestros Servicios de Tatuajes
+        </h2>
+        <p class="text-text-secondary text-sm mb-4 tattoo-info"></p>
+        <div class="relative w-full h-0 pb-[56.25%] mb-4 rounded-lg overflow-hidden">
+            <img src="" class="tattoo-artist-image absolute top-0 left-0 w-full h-full object-cover" alt="Tatuador">
+        </div>
+        <p class="text-text-secondary text-sm tattoo-artist-bio"></p>
+    </div>
+
+    <!-- Tattoo Reservation Form -->
+    <div class="card bg-dark-card-bg p-6 mb-6">
+        <h2 class="text-xl font-bold text-mustard mb-4 flex items-center">
+            <i class="fas fa-calendar-check mr-2 text-2xl"></i> Reservar Cita
+        </h2>
+        <p class="text-gray-400 text-sm mb-4">Nota: Las citas deben reservarse con al menos <span id="anticipation-note"></span> horas de anticipación.</p>
+        <form id="tattoo-reservation-form" class="space-y-4">
+            <div>
+                <label for="client-name" class="block text-sm font-medium text-mustard mb-1">Nombre Completo</label>
+                <input type="text" id="client-name" name="client-name" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-mustard focus:outline-none" placeholder="Tu nombre" required>
+            </div>
+            <div>
+                <label for="tattoo-date" class="block text-sm font-medium text-mustard mb-1">Fecha Deseada</label>
+                <input type="date" id="tattoo-date" name="tattoo-date" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-mustard focus:outline-none" required>
+            </div>
+            <div>
+                <label for="tattoo-time" class="block text-sm font-medium text-mustard mb-1">Hora Deseada</label>
+                <select id="tattoo-time" name="tattoo-time" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-mustard focus:outline-none" required>
+                    <option value="">Elige una hora</option>
+                    <option value="09:00">09:00</option>
+                    <option value="09:30">09:30</option>
+                    <option value="10:00">10:00</option>
+                    <option value="10:30">10:30</option>
+                    <option value="11:00">11:00</option>
+                    <option value="11:30">11:30</option>
+                    <option value="12:00">12:00</option>
+                    <option value="12:30">12:30</option>
+                    <option value="13:00">13:00</option>
+                    <option value="13:30">13:30</option>
+                    <option value="14:00">14:00</option>
+                    <option value="14:30">14:30</option>
+                    <option value="15:00">15:00</option>
+                    <option value="15:30">15:30</option>
+                    <option value="16:00">16:00</option>
+                    <option value="16:30">16:30</option>
+                    <option value="17:00">17:00</option>
+                    <option value="17:30">17:30</option>
+                    <option value="18:00">18:00</option>
+                    <option value="18:30">18:30</option>
+                    <option value="19:00">19:00</option>
+                    <option value="19:30">19:30</option>
+                    <option value="20:00">20:00</option>
+                    <option value="20:30">20:30</option>
+                    <option value="21:00">21:00</option>
+                    <option value="21:30">21:30</option>
+                    <option value="22:00">22:00</option>
+                </select>
+            </div>
+            <div>
+                <label for="tattoo-description" class="block text-sm font-medium text-mustard mb-1">Descripción del Tatuaje</label>
+                <textarea id="tattoo-description" name="tattoo-description" class="w-full p-2 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-mustard focus:outline-none" rows="4" placeholder="Describe el tatuaje que deseas (tamaño, estilo, ubicación, etc.)" required></textarea>
+            </div>
+            <button type="submit" class="btn bg-mustard text-black w-full py-3 rounded-full flex items-center justify-center border-2 border-[#FFD700] hover:bg-mustard-hover transition-colors">
+                <i class="fas fa-check mr-2"></i> Enviar Solicitud
+            </button>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,97 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Cortes",
+      "services": [
+        {
+          "id": 1,
+          "name": "Corte Clásico",
+          "price": 20,
+          "duration": "30 min",
+          "description": "Un corte atemporal con patillas cuadradas o en punta, adaptado a tu estilo. Elige peinados clásicos como raya al lado o cortes uniformes (1.5, 2, 3, 4, 5, 7, etc.). Realizado con tijera o máquina para un acabado impecable.",
+          "image": "assets/img/clasico.jpg",
+          "icon": "fas fa-cut"
+        },
+        {
+          "id": 2,
+          "name": "Corte Degradado",
+          "price": 25,
+          "duration": "40 min",
+          "description": "Sigue las últimas tendencias con un degradado moderno y sin patillas. Perfecto para un look fresco y actual. Ofrecemos estilos como Low Fade, Mid Fade, Skin Fade y más, personalizados según tu preferencia.",
+          "image": "assets/img/degradado.jpg",
+          "icon": "fas fa-cut"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Cuidado Personal",
+      "services": [
+        {
+          "id": 3,
+          "name": "Cejas",
+          "price": 5,
+          "duration": "20 min",
+          "description": "Limpieza precisa para unas cejas perfectas. Retiramos exceso de vello en el centro, delineamos arriba y abajo para un acabado limpio que realza tu mirada con un toque varonil.",
+          "image": "assets/img/cejas.jpg",
+          "icon": "fas fa-razor"
+        },
+        {
+          "id": 4,
+          "name": "Barba",
+          "price": 15,
+          "duration": "20 min",
+          "description": "Dale a tu barba el cuidado que merece. Reducimos el volumen a tu gusto y delineamos según la forma de tu rostro, logrando un estilo definido y masculino que resalta tu personalidad.",
+          "image": "assets/img/barba.jpg",
+          "icon": "fas fa-razor"
+        },
+        {
+          "id": 5,
+          "name": "Limpieza Facial",
+          "price": 30,
+          "duration": "45 min",
+          "description": "Revitaliza tu piel con una exfoliación que elimina impurezas y abre poros, seguida de una hidratación profunda. Incluye mascarilla para puntos negros y una mascarilla calmante para un rostro fresco y renovado.",
+          "image": "assets/img/limpieza_facial.jpg",
+          "icon": "fas fa-spa"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Promociones",
+      "services": [
+        {
+          "id": 6,
+          "name": "Corte + Barba",
+          "price": 30,
+          "duration": "50 min",
+          "description": "Combina un corte clásico o degradado con un arreglo de barba para un look completo a un precio especial. Perfecto para quienes buscan estilo y ahorro.",
+          "image": "assets/img/corte_barba.jpg",
+          "icon": "fas fa-cut",
+          "isPromo": true
+        },
+        {
+          "id": 7,
+          "name": "Corte + Barba + Cejas",
+          "price": 35,
+          "duration": "50 min",
+          "description": "El paquete ideal para un cambio total. Incluye un corte a tu elección, arreglo de barba personalizado y limpieza de cejas para un acabado pulido y profesional.",
+          "image": "assets/img/corte_barba_cejas.jpg",
+          "icon": "fas fa-cut",
+          "isPromo": true
+        },
+        {
+          "id": 8,
+          "name": "Servicio VIP",
+          "price": 50,
+          "duration": "1 hr",
+          "description": "La experiencia completa: corte, barba, cejas y limpieza facial, todo en una sola sesión. Además, disfruta de una bebida refrescante y un relajante masaje con máquina. ¡Lujo y cuidado en un solo paquete!",
+          "image": "assets/img/vip.jpg",
+          "icon": "fas fa-star",
+          "isPromo": true
+        }
+      ]
+    }
+  ]
+}
